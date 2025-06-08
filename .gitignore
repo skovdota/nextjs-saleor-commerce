@@ -1,15 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-gql/
-
-.env
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
 
 # next.js
 /.next/
@@ -18,17 +10,14 @@ gql/
 # production
 /build
 
-# misc
-.DS_Store
-*.pem
-
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# local env files
-.env*.local
+# env files
+.env*
 
 # vercel
 .vercel
@@ -36,9 +25,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-/test-results/
-/playwright-report/
-/playwright/.cache/
-
-.idea/
-.pnpm-store

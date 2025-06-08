@@ -1,0 +1,395 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos customizados para as cores do Mega Link */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Cores personalizadas */
+:root {
+  --mega-purple: #532580;
+  --mega-gold: #fab72b;
+  --mega-white: #ffffff;
+}
+
+/* ===== ANIMAÇÕES PRINCIPAIS ===== */
+
+/* Animação de entrada do header */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de escala do card principal */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Animação de slide up para elementos */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de bounce in para QR Code */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animação de fade in com movimento para cima */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de slide lateral */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== ANIMAÇÕES DE EFEITO ===== */
+
+/* Animação de flutuação */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animação de bounce sutil */
+@keyframes bounceSubtle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Animação de bounce para ícones */
+@keyframes bounceIcon {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.1);
+  }
+}
+
+/* Animação de pulse para texto */
+@keyframes pulseText {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Animação de glow pulse */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(250, 183, 43, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(250, 183, 43, 0.8), 0 0 30px rgba(250, 183, 43, 0.6);
+  }
+}
+
+/* Animação de borda pulsante */
+@keyframes pulseBorder {
+  0%,
+  100% {
+    border-color: #532580;
+    box-shadow: 0 0 0 0 rgba(83, 37, 128, 0.4);
+  }
+  50% {
+    border-color: #fab72b;
+    box-shadow: 0 0 0 4px rgba(250, 183, 43, 0.3);
+  }
+}
+
+/* Animação de borda tracejada pulsante */
+@keyframes pulseBorderDashed {
+  0%,
+  100% {
+    border-color: #532580;
+  }
+  50% {
+    border-color: #fab72b;
+    transform: scale(1.01);
+  }
+}
+
+/* Animação de rotação lenta */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animação de bounce para texto */
+@keyframes bounceText {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Animação de gradiente para texto */
+@keyframes gradientText {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Animação de pulse sutil */
+@keyframes pulseSubtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ===== PARTÍCULAS FLUTUANTES ===== */
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fab72b;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatParticle 4s infinite ease-in-out;
+}
+
+@keyframes floatParticle {
+  0%,
+  100% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10px) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== CLASSES DE ANIMAÇÃO ===== */
+@layer utilities {
+  .animate-slide-down {
+    animation: slideDown 1s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 1s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSubtle 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-icon {
+    animation: bounceIcon 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-text {
+    animation: pulseText 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-border {
+    animation: pulseBorder 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-border-dashed {
+    animation: pulseBorderDashed 2s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spinSlow 8s linear infinite;
+  }
+
+  .animate-bounce-text {
+    animation: bounceText 2s ease-in-out infinite;
+  }
+
+  .animate-gradient-text {
+    background: linear-gradient(-45deg, #532580, #fab72b, #532580, #fab72b);
+    background-size: 400% 400%;
+    animation: gradientText 3s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulseSubtle 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+}
+
+/* Responsividade extra para dispositivos muito pequenos */
+@media (max-width: 320px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Melhorias para touch devices */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  input,
+  label {
+    min-height: 44px;
+  }
+}
+
+/* Reduzir animações para usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Estilos para inputs com foco */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(250, 183, 43, 0.3);
+  transform: scale(1.02);
+}
+
+/* Checkbox customizado */
+[data-state="checked"] {
+  background-color: #fab72b !important;
+  border-color: #fab72b !important;
+}
+
+/* Hover effects personalizados */
+.mega-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(83, 37, 128, 0.3);
+}
